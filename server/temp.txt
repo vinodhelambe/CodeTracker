@@ -1,0 +1,221 @@
+// app.get('/api/resources', async (req, res) => {
+//     try {
+//         // Sort by latest updated (or use { createdAt: -1 } for latest created)
+//         const resources = await Resource.find().sort({ updatedAt: -1 });
+//         res.json(resources);
+//     } catch (err) {
+//         console.log('Error fetching resources:', err);
+//         res.status(500).json({ error: 'Failed to fetch resources' });
+//     }
+// });
+
+// app.post('/api/resources', async (req, res) => {
+//     try {
+//         const newResource = new Resource(req.body);
+//         await newResource.save();
+//         res.status(201).json(newResource);
+//     } catch (err) {
+//         console.error('Error saving resource:', err);
+//         res.status(500).json({ error: 'Failed to save resource' });
+//     }
+// });
+
+// app.delete('/api/resources/:id', async (req, res) => {
+//     try {
+//         const resourcesId = req.params.id;
+//         await Resource.findByIdAndDelete(resourcesId);
+//         res.json({ message: 'resource deleted' });
+//     } catch (err) {
+//         console.error('Error Deleting resource:', err);
+//         res.status(500).json({ error: 'Failed to Delete resource' });
+//     }
+// });
+
+// app.get('/api/routine', async (req, res) => {
+
+//     try {
+//         const response = await Routine.find();
+//         res.json(response);
+//     } catch (err) {
+//         console.error('Error fetching routine:', err);
+//         res.status(500).json({ error: 'Failed to fetch routine' });
+//     }
+// })
+
+// app.post('/api/routine', async (req, res) => {
+//     console.log('req.body:', req.body);
+//     try {
+//         const { date, tasks } = req.body;
+
+//         if (!date) {
+//             return res.status(400).json({ error: 'Date is required' });
+//         }
+
+//         const updatedRoutine = await Routine.findOneAndUpdate(
+//             { date: date },
+//             { $set: { tasks: tasks } },
+//             { new: true, upsert: true, setDefaultsOnInsert: true }
+//         );
+
+//         res.status(201).json(updatedRoutine);
+//     } catch (err) {
+//         console.error('Error saving/updating routine:', err);
+//         res.status(500).json({ error: 'Failed to save/update routine' });
+//     }
+// })
+
+// app.patch('/api/routine/:date', async (req, res) => {
+//     try {
+//         const { date } = req.params;
+//         const { tasks } = req.body;
+
+//         if (!tasks) {
+//             return res.status(400).json({ error: 'Tasks are required for update' });
+//         }
+
+//         const routine = await Routine.findOneAndUpdate(
+//             { date: date },
+//             { $set: { tasks: tasks } },
+//             { new: true }
+//         );
+
+//         if (!routine) {
+//             return res.status(404).json({ error: 'Routine for this date not found' });
+//         }
+
+//         res.json(routine);
+//     } catch (err) {
+//         console.error('Error updating routine:', err);
+//         res.status(500).json({ error: 'Failed to update routine' });
+//     }
+// });
+
+
+
+
+// // Register Codeforces API route
+// codeforces(app);
+// leetcode(app);
+// hackerRank(app);
+
+// app.get('/api/problems', async (req, res) => {
+//     try {
+//         // Sort by latest updated (or use { createdAt: -1 } for latest created)
+//         const response = await Problems.find().sort({ updatedAt: -1 });
+//         res.json(response);
+//     } catch (err) {
+//         console.error('Error fetching problems:', err);
+//         res.status(500).json({ error: 'Failed to fetch problems' });
+//     }
+// });
+
+// app.post('/api/problems', async (req, res) => {
+//     try {
+//         const Newproblem = new Problems(req.body);
+//         await Newproblem.save();
+//         res.status(201).json(Newproblem);
+//     } catch (err) {
+//         console.error('Error Saving problems:', err);
+//         res.status(500).json({ error: 'Failed to save problems' });
+//     }
+// })
+
+// app.get('/api/view/:id', async (req, res) => {
+//     try {
+//         const response = await Problems.findById(req.params.id);
+//         if (!response) {
+//             return res.status(404).json({ error: 'Problem not found' });
+//         }
+//         res.json(response);
+//     } catch (err) {
+//         console.error('Error finding problems:', err);
+//         res.status(500).json({ error: 'Failed to find problems' });
+//     }
+// });
+
+// app.get('/api/resources/:id', async (req, res) => {
+//     try {
+//         const resource = await Resource.findById(req.params.id);
+//         if (!resource) {
+//             return res.status(404).json({ error: 'Resource not found' });
+//         }
+//         res.json(resource);
+//     } catch (err) {
+//         console.error('Error finding resource:', err);
+//         res.status(500).json({ error: 'Failed to find resource' });
+//     }
+// });
+
+
+// // edit problem
+
+// app.patch('/api/problems/:id', async (req, res) => {
+//     try {
+//         const { id } = req.params;
+//         const updatedProblem = await Problems.findByIdAndUpdate(id, req.body, { new: true });
+//         if (!updatedProblem) {
+//             return res.status(404).json({ error: 'Problem not found' });
+//         }
+//         res.json(updatedProblem);
+//     } catch (err) {
+//         console.error('Error updating problem:', err);
+//         res.status(500).json({ error: 'Failed to update problem' });
+//     }
+// });
+
+// app.patch('/api/resources/:id', async (req, res) => {
+//     try {
+//         const { id } = req.params;
+//         const updatedResource = await Resource.findByIdAndUpdate(id, req
+//             .body, { new: true });
+//         if (!updatedResource) {
+//             return res.status(404).json({ error: 'Resource not found' });
+//         }
+//         res.json(updatedResource);
+//     } catch (err) {
+//         console.error('Error updating resource:', err);
+//         res.status(500).json({ error: 'Failed to update resource' });
+//     }
+// });
+
+// app.delete('/api/problems/:id', async (req, res) => {
+//     try {   
+//         const problemId = req.params.id;
+//         const deletedProblem = await Problems.findByIdAndDelete(problemId);
+//         if (!deletedProblem) {
+//             return res.status(404).json({ error: 'Problem not found' });
+//         }
+//         res.json({ message: 'Problem deleted successfully' });
+//     } catch (err) {
+//         console.error('Error deleting problem:', err);
+//         res.status(500).json({ error: 'Failed to delete problem' });
+//     }       
+// });
+
+// app.delete('/api/routine/:date', async (req, res) => {
+//     try {       
+//         const { date } = req.params;
+//         const deletedRoutine = await Routine.findOneAndDelete({ date: date });
+//         if (!deletedRoutine) {
+//             return res.status(404).json({ error: 'Routine not found for this date' });
+//         }
+//         res.json({ message: 'Routine deleted successfully' });
+//     } catch (err) {
+//         console.error('Error deleting routine:', err);
+//         res.status(500).json({ error: 'Failed to delete routine' });
+//     }
+// });
+
+// app.delete('/api/resources/:id', async (req, res) => {
+//     try {       
+//         const resourceId = req.params.id;
+//         const deletedResource = await Resource.findByIdAndDelete(resourceId);
+//         if (!deletedResource) {
+//             return res.status(404).json({ error: 'Resource not found' });
+//         }
+//         res.json({ message: 'Resource deleted successfully' });
+//     } catch (err) {
+//         console.error('Error deleting resource:', err);
+//         res.status(500).json({ error: 'Failed to delete resource' });
+//     }       
+// });
