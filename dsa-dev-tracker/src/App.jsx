@@ -11,7 +11,7 @@ import './calendar.css';
 import axios from 'axios';
 import Navbar from './components/Navbar';
 import LoginPage from './pages/LoginPage';
-import Home from './pages/home';
+import Home from './pages/Home';
 import ForgetPassword from './pages/ForgetPassword';
 import VerifyEmail from './pages/VerifyEmail';
 import { ToastContainer, toast } from 'react-toastify';
