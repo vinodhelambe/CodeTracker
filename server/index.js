@@ -16,7 +16,7 @@ import userRouter from './routes/userRouter.js';
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const AlLOWED_ORIGINS = ['http://localhost:5173'];
+const AlLOWED_ORIGINS = ['https://code-tracker-server.vercel.app/'];
 
 app.use(cors({credentials: true, origin:AlLOWED_ORIGINS}));
 app.use(express.json());
