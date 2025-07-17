@@ -16,16 +16,16 @@ import userRouter from './routes/userRouter.js';
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const AlLOWED_ORIGINS = ['https://code-tracker-server.vercel.app', 'http://localhost:5173'];
+const ALLOWED_ORIGINS = ['https://code-tracker-server.vercel.app', 'http://localhost:5173'];
 
-app.use(cors({credentials: true, origin:AlLOWED_ORIGINS}));
+app.use(cors({credentials: true, origin: ALLOWED_ORIGINS}));
 app.use(express.json());
 app.use(cookieParser());   
 connectDB();
 
 
 
-app.get('/', (req, res) =>  res.send('Hey buddy'));
+app.get('/', (req, res) =>  res.send('Server Connected'));
 app.use('/api/auth',authRouter);
 app.use('/user',userRouter);
 

@@ -2,7 +2,7 @@
 
 import axios from 'axios';
 
-const Base_URL = 'http://localhost:3000/api';
+const Base_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000/api';
 
 const loadResource = async () => {
     try {
