@@ -4,7 +4,6 @@ import useStickyState from './hooks/useStickyState';
 import Dashboard from './components/Dashboard';
 import Resources from './components/Resources';
 import Routine from './components/Routine';
-import AIPlanner from './components/AIPlanner';
 import Problems from './components/problems';
 import Viewpage from './components/Viewpage';
 import './calendar.css';
@@ -36,7 +35,6 @@ function App() {
                 <Route path="/Dashboard" element={<Dashboard resources={resources} />} />
                 <Route path="/resources" element={<Resources resources={resources} setResources={setResources} />} />
                 <Route path="/routine" element={<Routine />} />
-                <Route path="/ai-planner" element={<AIPlanner />} />
                 <Route path="/problems" element={<Problems />} />
                 <Route path="/view/problem/:id" element={<Viewpage />} />
                 <Route path="/view/resource/:id" element={<Viewpage />} />
