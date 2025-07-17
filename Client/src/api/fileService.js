@@ -2,6 +2,8 @@
 
 import axios from 'axios';
 
+axios.defaults.withCredentials = true;
+
 const Base_URL = import.meta.env.VITE_BACKEND_URL + "/api" || 'http://localhost:3000/api' ;
 
 const loadResource = async () => {
