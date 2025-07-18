@@ -29,7 +29,7 @@ export const register = async (req, res) => {
             httpOnly: true,
             path: '/',
             maxAge: 7 * 24 * 60 * 60 * 1000,
-            SameSite: 'none'
+            sameSite: 'none'
         });
 
         const mailOptions = {
@@ -75,7 +75,7 @@ export const login = async (req, res) => {
             httpOnly: true,
             path: '/',
             maxAge: 7 * 24 * 60 * 60 * 1000,
-            SameSite: None
+            sameSite: 'none'
         });
 
         return res.json({ success: true });
