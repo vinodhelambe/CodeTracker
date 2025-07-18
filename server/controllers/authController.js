@@ -29,7 +29,9 @@ export const register = async (req, res) => {
             httpOnly: true,
             path: '/',
             maxAge: 7 * 24 * 60 * 60 * 1000,
-            sameSite: 'none'
+            sameSite: 'none',
+            secure: true,
+            domain: process.env.NODE_ENV === 'production' ? 'code-tracker-server.vercel.app' : undefined
         });
 
         const mailOptions = {
@@ -75,7 +77,9 @@ export const login = async (req, res) => {
             httpOnly: true,
             path: '/',
             maxAge: 7 * 24 * 60 * 60 * 1000,
-            sameSite: 'none'
+            sameSite: 'none',
+            secure: true,
+            domain: process.env.NODE_ENV === 'production' ? 'code-tracker-server.vercel.app' : undefined
         });
 
         return res.json({ success: true });
