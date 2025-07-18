@@ -6,9 +6,6 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import { codeforces, leetcode, hackerRank } from './model/FeatchCode.js';
 
-import Resource from './model/resource.js';
-import Routine from './model/routine.js';
-import Problems from './model/problem.js';
 
 import authRouter from './routes/authRoute.js'
 import userRouter from './routes/userRouter.js';
